@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package org.pl.eshop.dto;
+
 import java.lang.Exception;
 
 public class Categoria {
@@ -20,32 +21,35 @@ public class Categoria {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
-    
-    public String Categoria(){
+
+    public String Categoria() {
         return " ";
     }
-  
+
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) throws Exception {
-        if(id <= 0 || id == null){
+    public void setId(Integer id) {
+        if (id == null || id <= 0) {
             throw new IllegalArgumentException();
         }
-        
+
         this.id = id;
     }
 
     public String getNombre() {
+        if(id== null && nombre== null && descripcion==null ){
+            return "";
+        }
         return nombre;
     }
 
     public void setNombre(String nombre) {
-        if(nombre.equals("") || nombre.equals(" ") || nombre.isEmpty() || nombre==null ){
+        if (nombre == null || nombre.equals("") || nombre.equals(" ") || nombre.isEmpty()) {
             throw new IllegalArgumentException();
         }
-        if(nombre.length() <= 3){
+        if (nombre.length() <= 3) {
             throw new IllegalArgumentException();
         }
         this.nombre = nombre;
