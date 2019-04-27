@@ -16,9 +16,6 @@ public class Categoria {
     }
 
     public Categoria(Integer id, String nombre, String descripcion) {
-        if(id <= 0){     
-            throw new IllegalArgumentException();
-        }
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
