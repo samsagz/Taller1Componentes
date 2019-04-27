@@ -21,11 +21,8 @@ public class Categoria {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
-
-    public String Categoria() {
-        return " ";
-    }
-
+    
+  
     public Integer getId() {
         return id;
     }
@@ -39,8 +36,8 @@ public class Categoria {
     }
 
     public String getNombre() {
-        if(id== null && nombre== null && descripcion==null ){
-            return "";
+        if(id== 0 && nombre.isEmpty() && descripcion.isEmpty() ){
+            return " ";
         }
         return nombre;
     }
