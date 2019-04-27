@@ -4,34 +4,61 @@
  * and open the template in the editor.
  */
 package org.pl.eshop.dto;
+import java.lang.Exception;
 
 public class Categoria {
- private Integer id;
- private String nombre;
- private String descripcion;
- public Categoria() {
- }
- public Categoria(Integer id, String nombre, String descripcion) {
- this.id = id;
- this.nombre = nombre;
- this.descripcion = descripcion;
- }
- public Integer getId() {
- return id;
- }
- public void setId(Integer id) {
- this.id = id;
- }
- public String getNombre() {
- return nombre;
- }
- public void setNombre(String nombre) {
- this.nombre = nombre;
- }
- public String getDescripcion() {
- return descripcion;
- }
- public void setDescripcion(String descripcion) {
- this.descripcion = descripcion;
- }
+
+    private Integer id;
+    private String nombre;
+    private String descripcion;
+
+    public Categoria() {
+    }
+
+    public Categoria(Integer id, String nombre, String descripcion) {
+        if(id <= 0){     
+            throw new IllegalArgumentException();
+        }
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+    
+    public String Categoria(){
+        return " ";
+    }
+  
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) throws Exception {
+        if(id <= 0 || id == null){
+            throw new IllegalArgumentException();
+        }
+        
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        if(nombre.equals("") || nombre.equals(" ") || nombre.isEmpty() || nombre==null ){
+            throw new IllegalArgumentException();
+        }
+        if(nombre.length() <= 3){
+            throw new IllegalArgumentException();
+        }
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 }
